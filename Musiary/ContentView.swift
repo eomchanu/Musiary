@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var keyboardListener: KeyboardListener
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack(alignment: .bottom) {
+            NavigationStack(path: $navigationManager.path){
+                HomeView()
+            }
+            if !keyboardListener.isKeyboardOn {
+                FloatingPlayerView()
+                    .padding(.bottom)
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(NavigationManager())
+        .environmentObject(DateManager())
+        .environmentObject(KeyboardListener())
 }

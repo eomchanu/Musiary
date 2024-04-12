@@ -12,6 +12,10 @@ struct MusiaryApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+                .environmentObject(NavigationManager())
+                .environmentObject(DateManager())
+                .environmentObject(KeyboardListener())
         }
     }
 }

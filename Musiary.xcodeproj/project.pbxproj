@@ -14,6 +14,16 @@
 		67FFFB9E2BC7CBD700F8562B /* MusiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFB9D2BC7CBD700F8562B /* MusiaryTests.swift */; };
 		67FFFBA82BC7CBD700F8562B /* MusiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBA72BC7CBD700F8562B /* MusiaryUITests.swift */; };
 		67FFFBAA2BC7CBD700F8562B /* MusiaryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBA92BC7CBD700F8562B /* MusiaryUITestsLaunchTests.swift */; };
+		67FFFBBA2BC7CEA300F8562B /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBB92BC7CEA300F8562B /* NavigationManager.swift */; };
+		67FFFBBC2BC7CF0B00F8562B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBBB2BC7CF0B00F8562B /* HomeView.swift */; };
+		67FFFBBE2BC7CFD700F8562B /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBBD2BC7CFD700F8562B /* DiaryView.swift */; };
+		67FFFBC02BC7D00000F8562B /* WriteDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBBF2BC7D00000F8562B /* WriteDiaryView.swift */; };
+		67FFFBC32BC7F5F900F8562B /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBC22BC7F5F900F8562B /* Arrow.swift */; };
+		67FFFBC52BC8EB3300F8562B /* FloatingPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBC42BC8EB3300F8562B /* FloatingPlayerView.swift */; };
+		67FFFBC72BC90D5B00F8562B /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBC62BC90D5B00F8562B /* DateManager.swift */; };
+		67FFFBC92BC9177700F8562B /* KeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBC82BC9177700F8562B /* KeyboardListener.swift */; };
+		67FFFBCB2BC920F800F8562B /* MusicSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBCA2BC920F800F8562B /* MusicSearchView.swift */; };
+		67FFFBCD2BC942D400F8562B /* SearchMusicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFBCC2BC942D400F8562B /* SearchMusicRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +54,16 @@
 		67FFFBA32BC7CBD700F8562B /* MusiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFFBA72BC7CBD700F8562B /* MusiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiaryUITests.swift; sourceTree = "<group>"; };
 		67FFFBA92BC7CBD700F8562B /* MusiaryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiaryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		67FFFBB92BC7CEA300F8562B /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		67FFFBBB2BC7CF0B00F8562B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		67FFFBBD2BC7CFD700F8562B /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		67FFFBBF2BC7D00000F8562B /* WriteDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryView.swift; sourceTree = "<group>"; };
+		67FFFBC22BC7F5F900F8562B /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
+		67FFFBC42BC8EB3300F8562B /* FloatingPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPlayerView.swift; sourceTree = "<group>"; };
+		67FFFBC62BC90D5B00F8562B /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		67FFFBC82BC9177700F8562B /* KeyboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardListener.swift; sourceTree = "<group>"; };
+		67FFFBCA2BC920F800F8562B /* MusicSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchView.swift; sourceTree = "<group>"; };
+		67FFFBCC2BC942D400F8562B /* SearchMusicRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +114,10 @@
 		67FFFB8B2BC7CBD500F8562B /* Musiary */ = {
 			isa = PBXGroup;
 			children = (
+				67FFFBC12BC7F5C400F8562B /* Helper */,
+				67FFFBB82BC7CE9600F8562B /* Manager */,
+				67FFFBB72BC7CE8F00F8562B /* ViewModel */,
+				67FFFBB62BC7CE8B00F8562B /* View */,
 				67FFFB8C2BC7CBD500F8562B /* MusiaryApp.swift */,
 				67FFFB8E2BC7CBD500F8562B /* ContentView.swift */,
 				67FFFB902BC7CBD700F8562B /* Assets.xcassets */,
@@ -125,6 +149,44 @@
 				67FFFBA92BC7CBD700F8562B /* MusiaryUITestsLaunchTests.swift */,
 			);
 			path = MusiaryUITests;
+			sourceTree = "<group>";
+		};
+		67FFFBB62BC7CE8B00F8562B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67FFFBBB2BC7CF0B00F8562B /* HomeView.swift */,
+				67FFFBBD2BC7CFD700F8562B /* DiaryView.swift */,
+				67FFFBBF2BC7D00000F8562B /* WriteDiaryView.swift */,
+				67FFFBC42BC8EB3300F8562B /* FloatingPlayerView.swift */,
+				67FFFBCA2BC920F800F8562B /* MusicSearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67FFFBB72BC7CE8F00F8562B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67FFFBB82BC7CE9600F8562B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				67FFFBB92BC7CEA300F8562B /* NavigationManager.swift */,
+				67FFFBC62BC90D5B00F8562B /* DateManager.swift */,
+				67FFFBC82BC9177700F8562B /* KeyboardListener.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		67FFFBC12BC7F5C400F8562B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				67FFFBC22BC7F5F900F8562B /* Arrow.swift */,
+				67FFFBCC2BC942D400F8562B /* SearchMusicRow.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,11 +270,12 @@
 			};
 			buildConfigurationList = 67FFFB842BC7CBD500F8562B /* Build configuration list for PBXProject "Musiary" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 67FFFB802BC7CBD500F8562B;
 			productRefGroup = 67FFFB8A2BC7CBD500F8562B /* Products */;
@@ -257,8 +320,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67FFFBBE2BC7CFD700F8562B /* DiaryView.swift in Sources */,
 				67FFFB8F2BC7CBD500F8562B /* ContentView.swift in Sources */,
+				67FFFBC92BC9177700F8562B /* KeyboardListener.swift in Sources */,
+				67FFFBC02BC7D00000F8562B /* WriteDiaryView.swift in Sources */,
+				67FFFBBC2BC7CF0B00F8562B /* HomeView.swift in Sources */,
+				67FFFBC32BC7F5F900F8562B /* Arrow.swift in Sources */,
+				67FFFBCB2BC920F800F8562B /* MusicSearchView.swift in Sources */,
 				67FFFB8D2BC7CBD500F8562B /* MusiaryApp.swift in Sources */,
+				67FFFBBA2BC7CEA300F8562B /* NavigationManager.swift in Sources */,
+				67FFFBC72BC90D5B00F8562B /* DateManager.swift in Sources */,
+				67FFFBCD2BC942D400F8562B /* SearchMusicRow.swift in Sources */,
+				67FFFBC52BC8EB3300F8562B /* FloatingPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
