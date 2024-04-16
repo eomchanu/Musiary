@@ -10,6 +10,9 @@ import SwiftUI
 struct DiaryView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @EnvironmentObject var playerViewModel: PlayerViewModel
+    @EnvironmentObject var dateManager: DateManager
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -22,11 +25,19 @@ struct DiaryView: View {
                         .foregroundStyle(.black.opacity(0.2))
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("12")
+                            Spacer()
+                            RoundedRectangle(cornerRadius: 15)
+                                .foregroundStyle(.gray.opacity(0.9))
+                                .frame(width: 60, height: 6)
+                                .padding(.leading, -20)
+                            Spacer()
+                        }
+                        HStack {
+                            Text("\(dateManager.getSelectedDay().description)")
                                 .font(.system(size: 48))
                             VStack(alignment: .leading) {
-                                Text("4월")
-                                Text("2024")
+                                Text("\(dateManager.getSelectedMonth().description)월")
+                                Text("\(dateManager.getSelectedYear().description)년")
                             }
                         }
                         .padding(.bottom, 5)
@@ -35,7 +46,7 @@ struct DiaryView: View {
                     }
                     .bold()
                     .padding(.leading, 20)
-                    .padding(.top, 60)
+                    .padding(.top, 70)
                 }
                 VStack {
                     Spacer()
@@ -115,17 +126,7 @@ struct DiaryView: View {
                     }
                 }
             }
-            .gesture(
-                DragGesture()
-                    .onEnded { gesture in
-                        if gesture.translation.height > 50 {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }
-                    .onChanged { gesture in
-                        
-                    }
-            )
+            .clipShape(RoundedRectangle(cornerRadius: playerViewModel.isMoving ? 30 : 20))
             .ignoresSafeArea()
         }
     }

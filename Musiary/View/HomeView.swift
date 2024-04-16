@@ -9,61 +9,88 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var dateManager: DateManager
+    @EnvironmentObject var playerViewModel: PlayerViewModel
     
-    @State private var showDiary: Bool = false
     @State private var selectedDate = Date.now
+    
     
     var body: some View {
         VStack {
-            HStack {
-                Text("기록하기")
-                    .font(.largeTitle)
-                    .bold()
-                Spacer()
+            VStack(alignment: .leading, spacing: 1) {
+                HStack {
+                    Text("기록하기")
+                        .font(.largeTitle)
+                        .bold()
+                    Spacer()
+                }
+//                Text("화살표를 눌러 새로운 기록을\n음악과 함께 남겨보세요!")
+//                    .foregroundStyle(.gray)
             }
             .padding()
-            NavigationLink(value: "write") {
-                Arrow()
-                    .padding(.horizontal, 25)
-                    .padding(.top, 30)
-            }
-            Image("border")
-                .padding(.vertical, -20)
+            
+//            Spacer()
+//                .frame(height: 10)
+//            NavigationLink(value: "write") {
+//                Arrow()
+//                    .padding(.horizontal, 26)
+//            }
+            
             HStack {
                 Spacer()
-                Text("지난 기록")
-                    .font(.largeTitle)
-                    .bold()
+                NavigationLink(value: "write") {
+                        Image(systemName: "arrow.right.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, -18)
+            
+            Image("border")
+                .padding(.vertical, -20)
+            
+            HStack {
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text("지난 기록")
+                        .font(.largeTitle)
+                        .bold()
+                }
             }
             .padding(.horizontal)
-            DatePicker("지난 기록", selection: $dateManager.selectedDate, in: ...Date.now, displayedComponents: .date)
-                .datePickerStyle(.graphical)
-                .padding(10)
-                .background(Color(cgColor: .init(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)).opacity(0.8))
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .padding(.horizontal, 30)
-                .padding(.vertical, 5.5)
+            .padding(.bottom, 30)
+            
+//            DatePicker("지난 기록", selection: $dateManager.selectedDate, in: ...Date.now, displayedComponents: .date)
+//                .datePickerStyle(.graphical)
+//                .padding(10)
+//                .background(Color.darkGray.opacity(0.8))
+//                .clipShape(RoundedRectangle(cornerRadius: 15))
+//                .padding(.horizontal, 30)
+//                .padding(.vertical, 5.5)
+            
+            MusicCalendarView(month: Date.now)
+            
             HStack {
                 Spacer()
                 Button {
-                    showDiary.toggle()
+                    withAnimation {
+                        playerViewModel.height = 0
+                        playerViewModel.floating = false
+                    }
                 } label: {
                     HStack {
-                        VStack(alignment: .trailing) {
-                            Text("\(dateManager.getSelectedMonth())월 \(dateManager.getSelectedDay())일")
-                            Text("보러 가기")
-                        }
+                        Text("\(dateManager.getSelectedMonth())월 \(dateManager.getSelectedDay())일 보러 가기")
                         Image(systemName: "chevron.forward.circle.fill")
                     }
                 }
-                .padding(.horizontal)
             }
+            .padding(.top, -20)
+            .padding(.horizontal)
             
             Spacer()
         }
-        .fullScreenCover(isPresented: $showDiary){
-            DiaryView()
-        }
+        
         .navigationDestination(for: String.self) { string in
             WriteDiaryView()
         }
@@ -72,4 +99,6 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(DateManager())
+        .environmentObject(PlayerViewModel())
 }

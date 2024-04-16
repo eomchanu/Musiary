@@ -10,12 +10,15 @@
 import SwiftUI
 
 struct FloatingPlayerView: View {
+    @EnvironmentObject var playerViewModel: PlayerViewModel
+    
     var body: some View {
         HStack {
             Image("sza_cover")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 50, height: 50)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
             VStack(alignment: .leading){
                 Text("Snooze")
                     .bold()
@@ -39,10 +42,16 @@ struct FloatingPlayerView: View {
             }
         }
         .padding(10)
-        .padding(.horizontal, 20)
-        .background(Color(cgColor: .init(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)))
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .padding(.horizontal, 10)
+        .background(Color.darkGray)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
         .padding(.horizontal)
+        .onTapGesture {
+            withAnimation {
+                playerViewModel.height = 0
+                playerViewModel.floating = false
+            }
+        }
     }
 }
 

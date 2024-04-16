@@ -20,3 +20,15 @@ class DateManager: ObservableObject {
         return Calendar.current.dateComponents([.day], from: selectedDate).day!
     }
 }
+
+extension Date {
+    func getMonth() -> Int {
+        return Calendar.current.dateComponents([.month], from: self).month!
+    }
+    func getYear() -> Int {
+        return Calendar.current.dateComponents([.year], from: self).year!
+    }
+    func getDay() -> Int {
+        return Calendar.current.dateComponents([.day], from: self).day!
+    }
+}

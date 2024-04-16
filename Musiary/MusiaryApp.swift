@@ -16,6 +16,7 @@ struct MusiaryApp: App {
                 .environmentObject(NavigationManager())
                 .environmentObject(DateManager())
                 .environmentObject(KeyboardListener())
+                .environmentObject(PlayerViewModel())
         }
     }
 }

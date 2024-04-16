@@ -19,31 +19,51 @@ struct WriteDiaryView: View {
     var body: some View {
         ScrollView {
             VStack {
-                HStack {
+                DatePicker(selection: $selectedDate, displayedComponents: .date, label: {
                     Text("날짜")
                         .font(.largeTitle)
                         .bold()
-                    Spacer()
-                }
-                DatePicker("날짜", selection: $selectedDate, in: ...Date.now, displayedComponents: .date)
-                .padding(.horizontal)
-                .background(Color(cgColor: .init(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)).opacity(0.8))
-                .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
-                .datePickerStyle(.wheel)
-                .padding(.bottom)
+                })
+                .datePickerStyle(.compact)
+                
+                Divider()
+                    .padding(.top)
+                
                 HStack {
                     Text("음악")
                         .font(.largeTitle)
                         .bold()
                     Spacer()
-                    Button {
-                        showMusicSearchSheet.toggle()
-                    } label: {
-                        Image(systemName: "chevron.forward.circle.fill")
-                            .imageScale(.large)
-                    }
                 }
-                .padding(.bottom)
+                
+                // TODO: 선택 음악 존재 시 MusicInfo
+                RoundedRectangle(cornerRadius: 25)
+                    .frame(height: 300)
+                    .foregroundStyle(Color.darkGray)
+                    .overlay {
+                        VStack {
+                            Button {
+                                showMusicSearchSheet.toggle()
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundStyle(.accent)
+                                    .padding()
+                            }
+                            Text("기록할 음악을 선택해보세요!")
+                                .foregroundStyle(.gray)
+                                .bold()
+                        }
+                    }
+                    .padding(.vertical)
+                
+//                MusicInfo(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+//                .padding(.bottom)
+                
+                Divider()
+                
                 HStack {
                     Text("캡션")
                         .font(.largeTitle)
@@ -52,10 +72,10 @@ struct WriteDiaryView: View {
                 }
                 TextEditor(text: $caption)
                     .padding()
-                    .frame(height: 150)
+                    .frame(height: 100)
                     .scrollContentBackground(.hidden)
-                    .background(Color(cgColor: .init(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)).opacity(0.8))
-                    .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+                    .background(Color.darkGray.opacity(0.8))
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
                     .focused($isFocused)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
@@ -68,6 +88,7 @@ struct WriteDiaryView: View {
                             
                         }
                     }
+                    .padding(.bottom, 70)
                 
                 Spacer()
             }
@@ -90,6 +111,25 @@ struct WriteDiaryView: View {
     }
 }
 
+@ViewBuilder
+func MusicInfo(cover: String, title: String, artist: String) -> some View {
+        // TODO: 커버 이미지 AsyncImage로 변경
+        VStack {
+            Image(cover)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 250, height: 250)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            Text(title)
+                .font(.title3)
+                .bold()
+            Text(artist)
+                .font(.system(size: 16))
+                .foregroundStyle(.gray)
+        }
+}
+
 #Preview {
     WriteDiaryView()
+        .environmentObject(KeyboardListener())
 }

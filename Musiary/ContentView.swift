@@ -17,8 +17,7 @@ struct ContentView: View {
                 HomeView()
             }
             if !keyboardListener.isKeyboardOn {
-                FloatingPlayerView()
-                    .padding(.bottom)
+                PlayerView()
             }
         }
     }
@@ -29,4 +28,5 @@ struct ContentView: View {
         .environmentObject(NavigationManager())
         .environmentObject(DateManager())
         .environmentObject(KeyboardListener())
+        .environmentObject(PlayerViewModel())
 }

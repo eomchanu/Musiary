@@ -16,20 +16,16 @@ struct MusicSearchView: View {
         NavigationView {
             ScrollView {
                 if !query.isEmpty {
-                    VStack {
-                        CustomDivider()
-                        SearchMusicRow()
-                        CustomDivider()
-                        SearchMusicRow()
-                        CustomDivider()
-                        SearchMusicRow()
-                        CustomDivider()
-                        SearchMusicRow()
-                        CustomDivider()
-                        SearchMusicRow()
-                        CustomDivider()
-                        SearchMusicRow()
-                        CustomDivider()
+                    ScrollView {
+                        VStack {
+                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                        }
                     }
                 } else {
                     HStack {
@@ -59,15 +55,6 @@ struct MusicSearchView: View {
         }
     }
 }
-
-@ViewBuilder
-func CustomDivider() -> some View {
-    Rectangle()
-        .frame(height: 1)
-        .foregroundStyle(.gray.opacity(0.5))
-        .padding(.horizontal)
-}
-
 
 #Preview {
     MusicSearchView()
