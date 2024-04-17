@@ -58,6 +58,7 @@
 		67E5A8EA2BCE17C8003521CF /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		67E5A8EC2BCE1822003521CF /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		67E5A8EE2BCE1868003521CF /* DiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewModel.swift; sourceTree = "<group>"; };
+		67E5A8F22BCFB667003521CF /* 08 Snooze.m4p */ = {isa = PBXFileReference; lastKnownFileType = file; path = "08 Snooze.m4p"; sourceTree = "<group>"; };
 		67FFFB892BC7CBD500F8562B /* Musiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFFB8C2BC7CBD500F8562B /* MusiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiaryApp.swift; sourceTree = "<group>"; };
 		67FFFB8E2BC7CBD500F8562B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		67FFFB8B2BC7CBD500F8562B /* Musiary */ = {
 			isa = PBXGroup;
 			children = (
+				67E5A8F22BCFB667003521CF /* 08 Snooze.m4p */,
 				67E5A8E92BCE1129003521CF /* Model */,
 				67FFFBC12BC7F5C400F8562B /* Helper */,
 				67FFFBB82BC7CE9600F8562B /* Manager */,

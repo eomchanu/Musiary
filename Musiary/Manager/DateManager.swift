@@ -9,6 +9,11 @@ import SwiftUI
 
 class DateManager: ObservableObject {
     @Published var selectedDate: Date = .now
+    let formatter = DateFormatter()
+    
+    init() {
+        formatter.dateFormat = "M월 dd일 YYYY년"
+    }
     
     func getSelectedMonth() -> Int {
         return Calendar.current.dateComponents([.month], from: selectedDate).month!
@@ -18,6 +23,9 @@ class DateManager: ObservableObject {
     }
     func getSelectedDay() -> Int {
         return Calendar.current.dateComponents([.day], from: selectedDate).day!
+    }
+    func isSameDate(date: Date, targetDate: Date) -> Bool {
+        return formatter.string(from: date) == formatter.string(from: targetDate)
     }
 }
 

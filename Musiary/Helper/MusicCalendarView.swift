@@ -11,12 +11,13 @@ struct MusicCalendarView: View {
     @EnvironmentObject var dateManager: DateManager
     
     @State var month: Date
-    @State var clickedDates: Set<Date> = []
+    @State var clickedDate: Date = Date.now
+    @Binding var addedDates: [DiaryModel]
     
     var body: some View {
         VStack {
-                headerView
-                calendarGridView
+            headerView
+            calendarGridView
         }
         .padding([.leading, .bottom, .trailing])
     }
@@ -72,21 +73,21 @@ struct MusicCalendarView: View {
             LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
                 ForEach(0 ..< daysInMonth + firstWeekday, id: \.self) { index in
                     if index < firstWeekday { // 지난달
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundColor(Color.clear)
+                        Circle()
+                            .size(CGSize(width: 40, height: 40))
+                            .foregroundStyle(Color.clear)
                     } else { // 이번 달
                         let date = getDate(for: index - firstWeekday)
-//                        let day = index - firstWeekday + 1
-                        let clicked = clickedDates.contains(date)
+                        let clicked = dateManager.isSameDate(date: date, targetDate: clickedDate)
+                        let added = addedDates.map({ dateManager.formatter.string(from: $0.date) }).contains(dateManager.formatter.string(from: date))
                         
-                        CellView(date: date, clicked: clicked)
+                        CellView(date: date, clicked: clicked, added: added)
                             .onTapGesture {
                                 dateManager.selectedDate = date
-                                if clicked {
-                                  clickedDates.remove(date)
-                                } else {
-                                  clickedDates.insert(date)
-                                }
+                                clickedDate = date
+                                print(added.description)
+                                print(addedDates)
+                                print(dateManager.formatter.string(from: date))
                             }
                     }
                 }
@@ -103,36 +104,36 @@ private struct CellView: View {
     
     var date: Date
     var clicked: Bool = false
-    let formatter = DateFormatter()
+    var added: Bool = false
     
-    init(date: Date, clicked: Bool) {
-//        self.date = date
-        formatter.dateFormat = "M월 D일 YYYY년"
+    init(date: Date, clicked: Bool, added: Bool) {
         self.date = date
         self.clicked = clicked
+        self.added = added
     }
     
-    // TODO: 기록 있는 날짜 표시 (현재는 clicked..)
     var body: some View {
         ZStack {
-             if clicked {
+            if clicked {
                 Circle()
                     .size(CGSize(width: 40, height: 40))
                     .foregroundStyle(Color.darkGray)
+            }
+            else if added {
+                Circle()
+                    .size(CGSize(width: 40, height: 40))
+                    .foregroundStyle(.accent)
+                    .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
             }
             
             Text(String(date.getDay()))
                 .font(.system(size: 16))
                 .foregroundStyle(clicked ? .accent : .white)
-                .bold(isSameDate(date: date, targetDate: dateManager.selectedDate) || isSameDate(date: date, targetDate: Date.now) || clicked ? true : false)
-                .foregroundStyle(isSameDate(date: date, targetDate: dateManager.selectedDate) ? .accent : .white)
+                .bold(dateManager.isSameDate(date: date, targetDate: Date.now) || clicked ? true : false)
+                .foregroundStyle(clicked ? .accent : .white)
         }
         .frame(width:40, height: 40)
         .padding(.vertical, 2)
-    }
-    
-    func isSameDate(date: Date, targetDate: Date) -> Bool {
-        return formatter.string(from: date) == formatter.string(from: targetDate)
     }
 }
 
@@ -184,6 +185,6 @@ extension MusicCalendarView {
 
 
 
-#Preview {
-    MusicCalendarView(month: .now)
-}
+//#Preview {
+//    MusicCalendarView(month: .now, addedDates: [])
+//}

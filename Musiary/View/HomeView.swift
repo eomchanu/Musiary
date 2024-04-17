@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var dateManager: DateManager
     @EnvironmentObject var playerViewModel: PlayerViewModel
+    @EnvironmentObject var diaryViewModel: DiaryViewModel
     
     @State private var selectedDate = Date.now
     
@@ -69,25 +70,27 @@ struct HomeView: View {
 //                .padding(.horizontal, 30)
 //                .padding(.vertical, 5.5)
             
-            MusicCalendarView(month: Date.now)
+            MusicCalendarView(month: Date.now, addedDates: $diaryViewModel.diary)
             
-            HStack {
-                Spacer()
-                Button {
-                    withAnimation {
-                        playerViewModel.height = 0
-                        playerViewModel.floating = false
-                    }
-                } label: {
-                    HStack {
-                        Text("\(dateManager.getSelectedMonth())월 \(dateManager.getSelectedDay())일 보러 가기")
-                        Image(systemName: "chevron.forward.circle.fill")
+            if diaryViewModel.diary.map({ dateManager.formatter.string(from: $0.date) }).contains(dateManager.formatter.string(from: dateManager.selectedDate)) {
+                HStack {
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            playerViewModel.height = 0
+                            playerViewModel.floating = false
+                        }
+                    } label: {
+                        HStack {
+                            Text("\(dateManager.getSelectedMonth())월 \(dateManager.getSelectedDay())일 보러 가기")
+                            Image(systemName: "chevron.forward.circle.fill")
+                        }
                     }
                 }
+                .padding(.top, -20)
+                .padding(.horizontal)
+
             }
-            .padding(.top, -20)
-            .padding(.horizontal)
-            
             Spacer()
         }
         

@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct WriteDiaryView: View {
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var keyboardListener: KeyboardListener
+    @EnvironmentObject var diaryViewModel: DiaryViewModel
     
     @State private var selectedDate: Date = .now
     @State private var caption: String = ""
@@ -97,7 +100,13 @@ struct WriteDiaryView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("저장하기") {
-                        // TODO: 저장 로직 구현
+//                        var tempDiary = diaryViewModel.diary
+//                        tempDiary.append(.init(date: selectedDate, musics: [.init(caption: caption)]))
+//                        diaryViewModel.diary = tempDiary
+//                        print("complete")
+                        diaryViewModel.diary.append(.init(date: selectedDate, musics: [.init(caption: caption)]))
+                        print(diaryViewModel.diary)
+                        dismiss()
                     }
                 }
             }
@@ -132,4 +141,5 @@ func MusicInfo(cover: String, title: String, artist: String) -> some View {
 #Preview {
     WriteDiaryView()
         .environmentObject(KeyboardListener())
+        .environmentObject(DiaryViewModel())
 }

@@ -11,6 +11,7 @@ struct DiaryView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var playerViewModel: PlayerViewModel
+    @EnvironmentObject var diaryViewModel: DiaryViewModel
     @EnvironmentObject var dateManager: DateManager
     
     var body: some View {
@@ -20,9 +21,12 @@ struct DiaryView: View {
                     Image("sza_cover")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: geometry.size.width,height: geometry.size.height - 120)
+                        .frame(width: geometry.size.width, height: geometry.size.height - 140, alignment: .center)
+                        .clipped()
+                    
                     Rectangle()
                         .foregroundStyle(.black.opacity(0.2))
+                    
                     VStack(alignment: .leading) {
                         HStack {
                             Spacer()
@@ -33,15 +37,15 @@ struct DiaryView: View {
                             Spacer()
                         }
                         HStack {
-                            Text("\(dateManager.getSelectedDay().description)")
+                            Text("\(diaryViewModel.selectedDiary.date.getDay().description)")
                                 .font(.system(size: 48))
                             VStack(alignment: .leading) {
-                                Text("\(dateManager.getSelectedMonth().description)월")
-                                Text("\(dateManager.getSelectedYear().description)년")
+                                Text("\(diaryViewModel.selectedDiary.date.getMonth().description)월")
+                                Text("\(diaryViewModel.selectedDiary.date.getYear().description)년")
                             }
                         }
                         .padding(.bottom, 5)
-                        Text("졸리다")
+                        Text(diaryViewModel.selectedDiary.musics[0].caption)
                             .font(.system(size: 38))
                     }
                     .bold()
@@ -62,7 +66,7 @@ struct DiaryView: View {
                                 .foregroundStyle(.gray)
                             // TODO: 커스텀 슬라이더로 변경
                             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .frame(height: 10)
+                                .frame(height: 8)
                                 .foregroundStyle(.accent)
                                 .padding(.top, 10)
                             HStack {
@@ -134,4 +138,7 @@ struct DiaryView: View {
 
 #Preview {
     DiaryView()
+        .environmentObject(DiaryViewModel())
+        .environmentObject(DateManager())
+        .environmentObject(PlayerViewModel())
 }

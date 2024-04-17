@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            NavigationStack(path: $navigationManager.path){
+            NavigationStack(path: $navigationManager.path) {
                 HomeView()
             }
             if !keyboardListener.isKeyboardOn {
@@ -29,4 +29,5 @@ struct ContentView: View {
         .environmentObject(DateManager())
         .environmentObject(KeyboardListener())
         .environmentObject(PlayerViewModel())
+        .environmentObject(DiaryViewModel())
 }
