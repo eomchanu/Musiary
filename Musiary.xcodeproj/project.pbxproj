@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6728EFDC2BD0F0F600429C17 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6728EFDB2BD0F0F600429C17 /* CustomProgressBar.swift */; };
 		67A9D0792BC960CF00631994 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9D0782BC960CF00631994 /* PlayerView.swift */; };
 		67A9D07B2BCA5A0700631994 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9D07A2BCA5A0700631994 /* PlayerViewModel.swift */; };
 		67A9D07D2BCB697D00631994 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9D07C2BCB697D00631994 /* Color.swift */; };
@@ -14,6 +15,11 @@
 		67E5A8EB2BCE17C8003521CF /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E5A8EA2BCE17C8003521CF /* DiaryModel.swift */; };
 		67E5A8ED2BCE1822003521CF /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E5A8EC2BCE1822003521CF /* MusicModel.swift */; };
 		67E5A8EF2BCE1868003521CF /* DiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E5A8EE2BCE1868003521CF /* DiaryViewModel.swift */; };
+		67E5A8F42BCFB812003521CF /* ViewModel in Resources */ = {isa = PBXBuildFile; fileRef = 67E5A8F32BCFB812003521CF /* ViewModel */; };
+		67E5A8F62BCFB888003521CF /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E5A8F52BCFB888003521CF /* MusicManager.swift */; };
+		67E5A8FA2BD09DA4003521CF /* raining-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 67E5A8F92BD09DA4003521CF /* raining-sound-effect.mp3 */; };
+		67E5A9042BD0AAFC003521CF /* 19 Morning Page.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 67E5A9022BD0AAFC003521CF /* 19 Morning Page.mp3 */; };
+		67E5A9052BD0AAFC003521CF /* 20 Train (Feat. C JAMM).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 67E5A9032BD0AAFC003521CF /* 20 Train (Feat. C JAMM).mp3 */; };
 		67FFFB8D2BC7CBD500F8562B /* MusiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFB8C2BC7CBD500F8562B /* MusiaryApp.swift */; };
 		67FFFB8F2BC7CBD500F8562B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FFFB8E2BC7CBD500F8562B /* ContentView.swift */; };
 		67FFFB912BC7CBD700F8562B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FFFB902BC7CBD700F8562B /* Assets.xcassets */; };
@@ -51,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6728EFDB2BD0F0F600429C17 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		67A9D0782BC960CF00631994 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		67A9D07A2BCA5A0700631994 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		67A9D07C2BCB697D00631994 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -58,7 +65,11 @@
 		67E5A8EA2BCE17C8003521CF /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		67E5A8EC2BCE1822003521CF /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		67E5A8EE2BCE1868003521CF /* DiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewModel.swift; sourceTree = "<group>"; };
-		67E5A8F22BCFB667003521CF /* 08 Snooze.m4p */ = {isa = PBXFileReference; lastKnownFileType = file; path = "08 Snooze.m4p"; sourceTree = "<group>"; };
+		67E5A8F32BCFB812003521CF /* ViewModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModel; sourceTree = "<group>"; };
+		67E5A8F52BCFB888003521CF /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		67E5A8F92BD09DA4003521CF /* raining-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "raining-sound-effect.mp3"; sourceTree = "<group>"; };
+		67E5A9022BD0AAFC003521CF /* 19 Morning Page.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "19 Morning Page.mp3"; sourceTree = "<group>"; };
+		67E5A9032BD0AAFC003521CF /* 20 Train (Feat. C JAMM).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "20 Train (Feat. C JAMM).mp3"; sourceTree = "<group>"; };
 		67FFFB892BC7CBD500F8562B /* Musiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FFFB8C2BC7CBD500F8562B /* MusiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiaryApp.swift; sourceTree = "<group>"; };
 		67FFFB8E2BC7CBD500F8562B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,7 +149,10 @@
 		67FFFB8B2BC7CBD500F8562B /* Musiary */ = {
 			isa = PBXGroup;
 			children = (
-				67E5A8F22BCFB667003521CF /* 08 Snooze.m4p */,
+				67E5A9022BD0AAFC003521CF /* 19 Morning Page.mp3 */,
+				67E5A9032BD0AAFC003521CF /* 20 Train (Feat. C JAMM).mp3 */,
+				67E5A8F92BD09DA4003521CF /* raining-sound-effect.mp3 */,
+				67E5A8F32BCFB812003521CF /* ViewModel */,
 				67E5A8E92BCE1129003521CF /* Model */,
 				67FFFBC12BC7F5C400F8562B /* Helper */,
 				67FFFBB82BC7CE9600F8562B /* Manager */,
@@ -202,6 +216,7 @@
 		67FFFBB82BC7CE9600F8562B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				67E5A8F52BCFB888003521CF /* MusicManager.swift */,
 				67FFFBB92BC7CEA300F8562B /* NavigationManager.swift */,
 				67FFFBC62BC90D5B00F8562B /* DateManager.swift */,
 				67FFFBC82BC9177700F8562B /* KeyboardListener.swift */,
@@ -216,6 +231,7 @@
 				67FFFBCC2BC942D400F8562B /* SearchMusicRow.swift */,
 				67A9D07C2BCB697D00631994 /* Color.swift */,
 				67A9D0802BCD14E700631994 /* MusicCalendarView.swift */,
+				6728EFDB2BD0F0F600429C17 /* CustomProgressBar.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -327,6 +343,10 @@
 			files = (
 				67FFFB942BC7CBD700F8562B /* Preview Assets.xcassets in Resources */,
 				67FFFB912BC7CBD700F8562B /* Assets.xcassets in Resources */,
+				67E5A9052BD0AAFC003521CF /* 20 Train (Feat. C JAMM).mp3 in Resources */,
+				67E5A8FA2BD09DA4003521CF /* raining-sound-effect.mp3 in Resources */,
+				67E5A9042BD0AAFC003521CF /* 19 Morning Page.mp3 in Resources */,
+				67E5A8F42BCFB812003521CF /* ViewModel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,8 +378,10 @@
 				67FFFBC92BC9177700F8562B /* KeyboardListener.swift in Sources */,
 				67FFFBC02BC7D00000F8562B /* WriteDiaryView.swift in Sources */,
 				67A9D07B2BCA5A0700631994 /* PlayerViewModel.swift in Sources */,
+				6728EFDC2BD0F0F600429C17 /* CustomProgressBar.swift in Sources */,
 				67FFFBBC2BC7CF0B00F8562B /* HomeView.swift in Sources */,
 				67A9D0812BCD14E700631994 /* MusicCalendarView.swift in Sources */,
+				67E5A8F62BCFB888003521CF /* MusicManager.swift in Sources */,
 				67FFFBC32BC7F5F900F8562B /* Arrow.swift in Sources */,
 				67A9D07D2BCB697D00631994 /* Color.swift in Sources */,
 				67E5A8EF2BCE1868003521CF /* DiaryViewModel.swift in Sources */,
@@ -536,6 +558,7 @@
 				DEVELOPMENT_TEAM = 56LCM2KZR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "청록";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -565,6 +588,7 @@
 				DEVELOPMENT_TEAM = 56LCM2KZR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "청록";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

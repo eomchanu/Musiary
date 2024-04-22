@@ -18,13 +18,10 @@ struct MusicSearchView: View {
                 if !query.isEmpty {
                     ScrollView {
                         VStack {
-                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
-                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
-                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
-                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
-                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
-                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
-                            SearchMusicRow(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+                            SearchMusicRow(cover: "lifes_like_cover", title: "아까워", artist: "재지팩트")
+                            SearchMusicRow(cover: "lifes_like_cover", title: "Close To You", artist: "재지팩트")
+                            SearchMusicRow(cover: "lifes_like_cover", title: "?!. (feat. DJ Pumkin", artist: "재지팩트")
+                            SearchMusicRow(cover: "lifes_like_cover", title: "Mom's Call (feat. Verbal Jint)", artist: "재지팩트")
                         }
                     }
                 } else {

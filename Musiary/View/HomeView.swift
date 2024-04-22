@@ -11,6 +11,7 @@ struct HomeView: View {
     @EnvironmentObject var dateManager: DateManager
     @EnvironmentObject var playerViewModel: PlayerViewModel
     @EnvironmentObject var diaryViewModel: DiaryViewModel
+    @EnvironmentObject var musicManager: MusicManager
     
     @State private var selectedDate = Date.now
     
@@ -80,6 +81,8 @@ struct HomeView: View {
                             playerViewModel.height = 0
                             playerViewModel.floating = false
                         }
+                        musicManager.setupAudio()
+                        // TODO: 이전 곡 stop
                     } label: {
                         HStack {
                             Text("\(dateManager.getSelectedMonth())월 \(dateManager.getSelectedDay())일 보러 가기")
@@ -104,4 +107,5 @@ struct HomeView: View {
     HomeView()
         .environmentObject(DateManager())
         .environmentObject(PlayerViewModel())
+        .environmentObject(MusicManager())
 }

@@ -85,9 +85,6 @@ struct MusicCalendarView: View {
                             .onTapGesture {
                                 dateManager.selectedDate = date
                                 clickedDate = date
-                                print(added.description)
-                                print(addedDates)
-                                print(dateManager.formatter.string(from: date))
                             }
                     }
                 }

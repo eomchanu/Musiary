@@ -30,4 +30,5 @@ struct ContentView: View {
         .environmentObject(KeyboardListener())
         .environmentObject(PlayerViewModel())
         .environmentObject(DiaryViewModel())
+        .environmentObject(MusicManager())
 }

@@ -62,7 +62,7 @@ struct WriteDiaryView: View {
                     }
                     .padding(.vertical)
                 
-//                MusicInfo(cover: "giriboy_cover1", title: "2000/90", artist: "기리보이")
+//                MusicInfo(cover: "lifes_like_cover", title: "아까워", artist: "재지팩트")
 //                .padding(.bottom)
                 
                 Divider()
@@ -100,12 +100,7 @@ struct WriteDiaryView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("저장하기") {
-//                        var tempDiary = diaryViewModel.diary
-//                        tempDiary.append(.init(date: selectedDate, musics: [.init(caption: caption)]))
-//                        diaryViewModel.diary = tempDiary
-//                        print("complete")
                         diaryViewModel.diary.append(.init(date: selectedDate, musics: [.init(caption: caption)]))
-                        print(diaryViewModel.diary)
                         dismiss()
                     }
                 }
@@ -127,8 +122,8 @@ func MusicInfo(cover: String, title: String, artist: String) -> some View {
             Image(cover)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 250, height: 250)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 250, height: 250)
             Text(title)
                 .font(.title3)
                 .bold()

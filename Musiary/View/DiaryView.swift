@@ -13,15 +13,16 @@ struct DiaryView: View {
     @EnvironmentObject var playerViewModel: PlayerViewModel
     @EnvironmentObject var diaryViewModel: DiaryViewModel
     @EnvironmentObject var dateManager: DateManager
+    @EnvironmentObject var musicManager: MusicManager
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 ZStack(alignment: .topLeading) {
-                    Image("sza_cover")
+                    Image("lifes_like_cover")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: geometry.size.width, height: geometry.size.height - 140, alignment: .center)
+                        .frame(width: geometry.size.width, height: geometry.size.height - 120, alignment: .center)
                         .clipped()
                     
                     Rectangle()
@@ -56,74 +57,86 @@ struct DiaryView: View {
                     Spacer()
                     ZStack(alignment: .leading) {
                         UnevenRoundedRectangle(cornerRadii: RectangleCornerRadii(topLeading: 25, topTrailing: 25))
-                            .frame(width: geometry.size.width, height: 250)
+                            .frame(width: geometry.size.width, height: 210)
                             .foregroundStyle(.black)
                         VStack(alignment: .leading) {
-                            Text("Snooze")
-                                .font(.title)
-                                .bold()
-                            Text("SZA")
-                                .foregroundStyle(.gray)
-                            // TODO: 커스텀 슬라이더로 변경
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .frame(height: 8)
-                                .foregroundStyle(.accent)
-                                .padding(.top, 10)
                             HStack {
-                                Text("1:31")
-                                Spacer()
-                                Text("3:18")
-                            }
-                            .foregroundStyle(.gray)
-                            .font(.caption)
-                            .padding(.top, 3)
-                            HStack {
-                                Button {
-                                    // TODO: 이전 곡 재생 액션 구현
-                                } label: {
-                                    Label {
-                                        Text("이전 곡 재생")
-                                    } icon: {
-                                        Image(systemName: "backward.fill")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 40)
-                                            .foregroundStyle(.white)
-                                    }
-                                    .labelStyle(.iconOnly)
+                                VStack(alignment: .leading) {
+                                    Text("아까워")
+                                        .font(.title2)
+                                        .bold()
+                                    Text("재지팩트")
+                                        .foregroundStyle(.gray)
                                 }
                                 Spacer()
                                 Button {
-                                    
+                                    musicManager.isPlaying ? musicManager.pauseSound() : 
+                                    musicManager.playSound()
                                 } label: {
                                     Label {
                                         Text("재생/정지")
                                     } icon: {
-                                        Image(systemName: "play.fill")
+                                        Image(systemName: musicManager.isPlaying ? "pause.fill" : "play.fill")
                                             .resizable()
                                             .scaledToFit()
-                                            .frame(width: 40)
+                                            .frame(width: 30)
                                             .foregroundStyle(.white)
                                     }
                                     .labelStyle(.iconOnly)
                                 }
-                                Spacer()
-                                Button {
-                                    
-                                } label: {
-                                    Label {
-                                        Text("다음 곡 재생")
-                                    } icon: {
-                                        Image(systemName: "forward.fill")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 40)
-                                            .foregroundStyle(.white)
-                                    }
-                                    .labelStyle(.iconOnly)
-                                }
+                                .padding(.horizontal)
                             }
-                            .padding(20)
+                            Spacer().frame(height: 30)
+                            // TODO: 커스텀 슬라이더로 변경
+                            CustomProgressBar(currentTime: .constant(10))
+                            HStack {
+//                                Button {
+//                                    // TODO: 이전 곡 재생 액션 구현
+//                                } label: {
+//                                    Label {
+//                                        Text("이전 곡 재생")
+//                                    } icon: {
+//                                        Image(systemName: "backward.fill")
+//                                            .resizable()
+//                                            .scaledToFit()
+//                                            .frame(width: 40)
+//                                            .foregroundStyle(.white)
+//                                    }
+//                                    .labelStyle(.iconOnly)
+//                                }
+//                                Spacer()
+//                                Button {
+//                                    MusicManager.instance.playSound()
+//                                    print("after playSound()")
+//                                } label: {
+//                                    Label {
+//                                        Text("재생/정지")
+//                                    } icon: {
+//                                        Image(systemName: "play.fill")
+//                                            .resizable()
+//                                            .scaledToFit()
+//                                            .frame(width: 40)
+//                                            .foregroundStyle(.white)
+//                                    }
+//                                    .labelStyle(.iconOnly)
+//                                }
+                                Spacer()
+//                                Button {
+//                                    
+//                                } label: {
+//                                    Label {
+//                                        Text("다음 곡 재생")
+//                                    } icon: {
+//                                        Image(systemName: "forward.fill")
+//                                            .resizable()
+//                                            .scaledToFit()
+//                                            .frame(width: 40)
+//                                            .foregroundStyle(.white)
+//                                    }
+//                                    .labelStyle(.iconOnly)
+//                                }
+                            }
+//                            .padding(20)
                         }
                         .padding(.horizontal,25)
 //                        .padding(10)

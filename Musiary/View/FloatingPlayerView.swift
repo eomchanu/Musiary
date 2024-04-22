@@ -14,15 +14,15 @@ struct FloatingPlayerView: View {
     
     var body: some View {
         HStack {
-            Image("sza_cover")
+            Image("lifes_like_cover")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 50, height: 50)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             VStack(alignment: .leading){
-                Text("Snooze")
+                Text("아까워")
                     .bold()
-                Text("SZA")
+                Text("재지팩트")
                     .font(.footnote)
                     .foregroundStyle(.gray)
             }
